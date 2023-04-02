@@ -1,2 +1,2 @@
 # QA-Automation
- Automation
+Cypress
