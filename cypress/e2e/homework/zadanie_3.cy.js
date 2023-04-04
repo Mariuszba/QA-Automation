@@ -1,7 +1,8 @@
 
-import { Login } from "../pages/loginPage";
+import { Login } from "../../pages/loginPage";
+import { Home } from "../../pages/homePage";
 
-const LoginPage = new Login();
+const LoginPage = new LoginPage();
 const HomePage = new HomePage();
 
 describe("Mój drugi test", () => {

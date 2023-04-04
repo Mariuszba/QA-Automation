@@ -1,4 +1,4 @@
-export class HomePage {
+export class Home {
     clickMenu() {
        cy.get('.css-7afvtf')
          .click();
