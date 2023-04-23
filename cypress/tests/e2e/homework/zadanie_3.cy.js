@@ -1,6 +1,6 @@
 
-import { Login } from "../../pages/loginPage";
-import { Home } from "../../pages/homePage";
+import { Login } from "../../../pages/loginPage";
+import { Home } from "../../../pages/homePage";
 
 const LoginPage = new LoginPage();
 const HomePage = new HomePage();
