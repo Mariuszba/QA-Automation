@@ -109,4 +109,3 @@ it('Test czas trawania odpowiedzi', () => {
     assert.isTrue(response.duration <= 150)
   })
 })
-
