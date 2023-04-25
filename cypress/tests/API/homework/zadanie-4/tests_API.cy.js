@@ -68,7 +68,7 @@ it('Test parametru', () => {
     
   }).then(response => {
     expect(response.status).to.eq(200)
-    expect(response.body.qs['key']).to.eq('Test value')
+    expect(response.body.qs.key).to.eq('Test value')
   })
 })
 
