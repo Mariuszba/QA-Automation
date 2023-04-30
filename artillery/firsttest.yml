@@ -10,3 +10,8 @@ scenarios:
     flow:
       - get:
           url: "{{ target }}get"
+      - post:
+          url: "{{ target }}post"
+          json:
+            username: "Test User"
+            password: "Temp Password"    

@@ -1,0 +1,41 @@
+config:
+  target: "http://httpbin.org/"
+  environments:
+    phases:
+      - duration: 10
+        arrivalRate: 1
+        name: Pierwsza faza testowa
+    payload:
+      path: "autoryzacja.csv"
+      fields:
+        - "email"
+        - "password"   
+    plugins:
+      ensure: {}
+    ensure:
+      thresholds:
+        - http.response_time.p95: 1000
+      conditions:
+        - expression: vusers.failed == 0
+        - expression: "http.request_rate >= 5 and http.response_time.max < 400"
+        - expression: http.response_time.p99 < 100 and vusers.created <= 10     
+          strict: false
+        - expression: http.codes.200 > 10 
+      p99: 1000
+      maxErrorRate: 0   
+scenarios:
+  - name: Pobiranie zasobu i autoryzacja użytkowników 
+    flow:
+      - get:
+          url: "{{ target }}get"
+      - post:
+          url: "/login"
+          json:
+            email: "{{ email }}"
+            password: "{{ password }}"
+          capture:
+            - json: "$.json"
+              as: "request_body"
+            - json: "$.headers.Host"
+              as: "host"
+             
